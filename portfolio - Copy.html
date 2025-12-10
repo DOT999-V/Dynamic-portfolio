@@ -176,7 +176,7 @@
     </div>
 </div>
 
-<!-- keep your weather script exactly as it was -->
+
 <script>
 const apiKey = "dcb75af0a29d4b15bb8192803250212";
 const city = "Chennai";
@@ -201,45 +201,40 @@ fetch(`https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`)
     });
 </script>
 
-<!-- Simple portfolio JS: beginner-friendly, no async/await, no arrow functions -->
+
 <script>
-/* Point this to your Node server (or Flask) base URL.
-   If your server runs on port 5000, keep as below.
-*/
+
 var apiURL = "http://127.0.0.1:5000/api/portfolio";
 
-/* Fetch portfolio data and insert into the DOM.
-   Simple .then() chains and plain for-loops used.
-*/
+
 fetch(apiURL)
     .then(function(response) {
-        // try to parse JSON even if response not OK; the server should return JSON
+
         return response.json();
     })
-    .then(function(data) {
-        // If any field is missing, use an empty fallback
+    .then(function(data) { 
         var name = data.name || "";
         var roll = data.roll || "";
         var about = data.about || "";
 
-        // Write basic text fields
+
         document.getElementById("name").innerHTML = name;
         document.getElementById("roll").innerHTML = roll;
         document.getElementById("aboutText").innerHTML = about;
 
-        // Hobbies (array expected)
+
         var hobbies = data.hobbies || [];
         var hobListHTML = "";
         for (var i = 0; i < hobbies.length; i++) {
             hobListHTML += "<li>" + hobbies[i] + "</li>";
         }
-        // If no hobbies, show a useful message
+
         if (hobbies.length === 0) {
             hobListHTML = "<li>No hobbies listed.</li>";
         }
         document.getElementById("hobby-list").innerHTML = hobListHTML;
 
-        // Aspirations (array expected)
+
         var asps = data.aspirations || [];
         var aspListHTML = "";
         for (var j = 0; j < asps.length; j++) {
@@ -251,11 +246,12 @@ fetch(apiURL)
         document.getElementById("asp-list").innerHTML = aspListHTML;
     })
     .catch(function() {
-        // keep it simple: log and show a small message in the console
+
         console.log("API not reachable.");
     });
 </script>
 
 </body>
 </html>
+
 
