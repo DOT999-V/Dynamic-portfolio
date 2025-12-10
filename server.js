@@ -1,4 +1,4 @@
-// server.js - beginner friendly
+
 const express = require("express");
 const cors = require("cors");
 
@@ -8,7 +8,7 @@ app.use(express.json());
 
 const PORT = 5000;
 
-// Your data
+
 const portfolio = {
   name: "Vishal Rajamanickam",
   roll: "ME25B140",
@@ -27,12 +27,11 @@ const portfolio = {
   ]
 };
 
-// API endpoint
 app.get("/api/portfolio", function(req, res) {
   res.status(200).json(portfolio);
 });
 
-// Start the server
 app.listen(PORT, function() {
   console.log("Server running at http://127.0.0.1:" + PORT);
 });
+
